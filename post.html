@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+	<!-- Mavo -->
+	<link rel="stylesheet" href="//get.mavo.io/mavo.min.css">
+	<script src="//get.mavo.io/mavo.min.js"></script>
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="style.css">
+
+	<title>Mavo-Powered Blog</title>
+</head>
+
+<body>
+	<header>
+		<svg id="logo" viewBox="0 0 100 100">
+			<text y="0.9em" font-size="90">📝</text>
+		</svg>
+		<h1>Mavo-Powered Blog</h1>
+
+		<nav aria-label="Main">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Projects</a></li>
+				<li><a href="#">Writing</a></li>
+				<li><a href="#">Speaking</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main mv-app="postContent" mv-storage="posts/[post.id].json" mv-plugins="markdown">
+		<meta property="date" content="[post.date]" />
+		<header>
+			<h1>[post.title]</h1>
+			<p>Posted on
+				<time datetime="[date]">
+					[weekday(date, "name")], [month(date, "name")] [day(date)][ordinal(day(date))], [year(date)]
+				</time>
+			</p>
+			<ul role="navigation" aria-label="Blogpost categories">
+				<li property="category" mv-multiple mv-value="post.category" mv-attribute="data-category">
+					<a href="#">[category]</a>
+				</li>
+			</ul>
+		</header>
+
+		<div property="content" class="markdown"></div>
+
+	</main>
+
+	<footer>
+		<section>
+			<form role="search" aria-label="Blogpost">
+				<input type="search" placeholder="🔍 Search" />
+				<button type="submit">Search</button>
+			</form>
+		</section>
+
+		<section>
+			<p>&copy; 2020 Awesome Author</p>
+			<p><a href="//mavo.io/">Powered by Mavo</a></p>
+			<a href="#logo">To the top ↑</a>
+		</section>
+	</footer>
+
+	<!--
+		Get data from the blogpost summary. Blogpost id is fetched from URL,
+		since we get to this page via https://blog-domain.com/blog/blogpost-id.
+	-->
+	<div hidden mv-app="post" mv-source="posts.json" mv-path="post/id=[url('blog')]">
+	</div>
+</body>
+
+</html>
