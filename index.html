@@ -34,8 +34,26 @@
 		</nav>
 	</header>
 
-	<main mv-app="blog">
+	<main mv-app="blog" mv-plugins="markdown">
+		<article property="post" mv-multiple>
+			<header>
+				<h1>
+					<a href="#" property="title" mv-attribute="none">Post title</a>
+				</h1>
 
+				<div aria-label="Blogpost categories">
+					<span property="category" mv-multiple></span>
+				</div>
+			</header>
+
+			<div property="summary" class="markdown" mv-markdown-options="headerLevelStart: 2"></div>
+
+			<footer>
+				Posted on <time property="date" mv-default="[$today]"></time>
+
+				<meta property="id" mv-default="[idify(title)]" />
+			</footer>
+		</article>
 	</main>
 
 	<footer>
