@@ -42,7 +42,7 @@
 				</h1>
 
 				<div aria-label="Blogpost categories">
-					<span property="category" mv-multiple></span>
+					<span property="category" mv-multiple mv-edit="#categories"></span>
 				</div>
 			</header>
 
@@ -71,6 +71,21 @@
 		</section>
 	</footer>
 
+	<!-- Properties editors -->
+	<div hidden>
+		<select id="categories">
+			<option value="">--Choose--</option>
+			<option value="html">HTML</option>
+			<option value="css">CSS</option>
+			<option value="js">JavaScript</option>
+			<option value="design">Design</option>
+			<option value="articles">Articles</option>
+			<option value="tutorials">Tutorials</option>
+			<option value="tips">Tips</option>
+			<option value="hacks">Hacks</option>
+			<option value="personal">Personal</option>
+		</select>
+	</div>
 </body>
 
 </html>
