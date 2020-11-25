@@ -35,14 +35,14 @@
 	</header>
 
 	<main mv-app="blog" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-plugins="markdown">
-		<article property="post" mv-multiple mv-order="desc">
+		<article property="post" mv-multiple mv-order="desc" mv-initial-items="0">
 			<header>
 				<h1>
 					<a href="/blog/[id]" property="title" mv-attribute="none">Post title</a>
 				</h1>
 
 				<div aria-label="Post categories">
-					<span property="category" mv-multiple mv-edit="#categories"></span>
+					<span property="category" mv-multiple mv-edit="#categories" mv-initial-items="0"></span>
 				</div>
 			</header>
 
