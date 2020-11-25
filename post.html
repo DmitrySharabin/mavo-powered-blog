@@ -34,24 +34,33 @@
 		</nav>
 	</header>
 
-	<main mv-app="postContent" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts/[post.id].json" mv-plugins="markdown">
-		<meta property="date" content="[post.date]" />
-		<header>
-			<h1>[post.title]</h1>
-			<p>Posted on
-				<time datetime="[date]">
-					[weekday(date, "name")], [month(date, "name")] [day(date)][ordinal(day(date))], [year(date)]
-				</time>
-			</p>
-			<ul role="navigation" aria-label="Blogpost categories">
-				<li property="category" mv-multiple mv-value="post.category" mv-attribute="data-category">
-					<a href="#">[category]</a>
-				</li>
-			</ul>
-		</header>
+	<main>
+		<!--
+			Get data from the blogpost summary. Blogpost id is fetched from URL,
+			since we get to this page via https://blog-domain.com/blog/blogpost-id.
+		-->
+		<div mv-app="post" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-path="post/id=[url('blog')]">
+			<header>
+				<h1 property="title">Post title</h1>
+				<p>
+					Posted
+					<time datetime="[date]">
+						[if(date = $today, "today", if($today - date = 1* days(), "yesterday", duration($today - date) & " past"))]
+					</time>
+				</p>
+				<ul role="navigation" aria-label="Post categories">
+					<li property="category" mv-multiple mv-attribute="data-category" mv-edit="#categories">
+						<a href="#">[category]</a>
+					</li>
+				</ul>
+			</header>
 
-		<div property="content" class="markdown"></div>
+			<div property="summary" class="markdown">Post summary</div>
+		</div>
 
+		<div mv-app="postContent" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts/[post.id].md" mv-plugins="markdown">
+			<div property mv-markdown-options="headerLevelStart: 2" aria-label="Post content">Post content</div>
+		</div>
 	</main>
 
 	<footer>
@@ -69,11 +78,20 @@
 		</section>
 	</footer>
 
-	<!--
-		Get data from the blogpost summary. Blogpost id is fetched from URL,
-		since we get to this page via https://blog-domain.com/blog/blogpost-id.
-	-->
-	<div hidden mv-app="post" mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-path="post/id=[url('blog')]">
+	<!-- Properties editors -->
+	<div hidden>
+		<select id="categories">
+			<option value="">--Choose--</option>
+			<option value="html">HTML</option>
+			<option value="css">CSS</option>
+			<option value="js">JavaScript</option>
+			<option value="design">Design</option>
+			<option value="articles">Articles</option>
+			<option value="tutorials">Tutorials</option>
+			<option value="tips">Tips</option>
+			<option value="hacks">Hacks</option>
+			<option value="personal">Personal</option>
+		</select>
 	</div>
 </body>
 
