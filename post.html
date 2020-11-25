@@ -41,7 +41,7 @@
 		-->
 		<div mv-app="post" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-path="post/id=[url('blog')]">
 			<header>
-				<h1 property="title">Post title</h1>
+				<h2 property="title">Post title</h2>
 				<p>
 					Posted
 					<time datetime="[date]">
@@ -55,11 +55,11 @@
 				</ul>
 			</header>
 
-			<div property="summary" class="markdown" mv-markdown-options="headerLevelStart: 2">Post summary</div>
+			<div property="summary" class="markdown" mv-markdown-options="headerLevelStart: 3">Post summary</div>
 		</div>
 
 		<div mv-app="postContent" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts/[post.id].md" mv-plugins="markdown">
-			<div property mv-markdown-options="headerLevelStart: 2" aria-label="Post content">Post content</div>
+			<div property mv-markdown-options="headerLevelStart: 3" aria-label="Post content">Post content</div>
 		</div>
 	</main>
 
