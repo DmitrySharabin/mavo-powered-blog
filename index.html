@@ -83,6 +83,13 @@
 
 	<!-- Disqus -->
 	<script id="dsq-count-scr" src="//https-mavo-powered-blog-netlify-app.disqus.com/count.js" async></script>
+
+	<!-- Update comments count after loading data -->
+	<script>
+		document.addEventListener("mv-load", evt => {
+			DISQUSWIDGETS.getCount({ reset: true });
+		});
+	</script>
 </body>
 
 </html>
