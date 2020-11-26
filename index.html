@@ -50,6 +50,8 @@
 
 			<footer>
 				Posted on <time property="date" mv-default="[$today]"></time>
+				&bull;
+				<a href="/blog/[id]#disqus_thread">Comments</a>
 
 				<meta property="id" mv-default="[idify(title)]" />
 			</footer>
@@ -78,6 +80,9 @@
 			<option property="category" mv-multiple mv-group value="[code]">[name]</option>
 		</select>
 	</div>
+
+	<!-- Disqus -->
+	<script id="dsq-count-scr" src="//https-mavo-powered-blog-netlify-app.disqus.com/count.js" async></script>
 </body>
 
 </html>
