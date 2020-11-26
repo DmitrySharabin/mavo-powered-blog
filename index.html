@@ -72,18 +72,10 @@
 	</footer>
 
 	<!-- Properties editors -->
-	<div hidden>
+	<div hidden mv-app mv-init="https://github.com/DmitrySharabin/mavo-powered-blog/categories.json">
 		<select id="categories">
 			<option value="">--Choose--</option>
-			<option value="html">HTML</option>
-			<option value="css">CSS</option>
-			<option value="js">JavaScript</option>
-			<option value="design">Design</option>
-			<option value="articles">Articles</option>
-			<option value="tutorials">Tutorials</option>
-			<option value="tips">Tips</option>
-			<option value="hacks">Hacks</option>
-			<option value="personal">Personal</option>
+			<option property="category" mv-multiple mv-group value="[code]">[name]</option>
 		</select>
 	</div>
 </body>
