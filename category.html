@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+	<!-- Mavo -->
+	<link rel="stylesheet" href="//get.mavo.io/mavo.min.css">
+	<script src="//get.mavo.io/mavo.min.js"></script>
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="style.css">
+
+	<title>Mavo-Powered Blog</title>
+</head>
+
+<body>
+	<header>
+		<svg id="logo" viewBox="0 0 100 100" width="50" height="50">
+			<text y="0.9em" font-size="90">📝</text>
+		</svg>
+		<h1>Mavo-Powered Blog</h1>
+
+		<nav aria-label="Main">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="#">Projects</a></li>
+				<li><a href="#">Writing</a></li>
+				<li><a href="#">Speaking</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main mv-app="blog" mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
+		<meta property="chosenCategory" content="[url('category')]" />
+
+		<h2>Posts in the <span class="chosen-category">[chosenCategory]</span> Category</h2>
+		<article property="post" mv-multiple mv-if="chosenCategory in category">
+			<header>
+				<h1>
+					<a href="/blog/[id]" property="title" mv-attribute="none">Post title</a>
+				</h1>
+
+				<p>
+					Posted on <time datetime="[date]">
+						[weekday(date, "name")], [month(date, "name")] [day(date)][ordinal(day(date))], [year(date)]
+					</time>
+					&bull;
+					<a href="/blog/[id]#disqus_thread">Comments</a>
+				</p>
+			</header>
+
+			<div property="summary" class="markdown" mv-markdown-options="headerLevelStart: 2">Post summary</div>
+		</article>
+	</main>
+
+	<footer>
+		<section>
+			<form role="search" aria-label="Post">
+				<input type="search" placeholder="🔍 Search" />
+				<button type="submit">Search</button>
+			</form>
+		</section>
+
+		<section>
+			<p>&copy; 2020 Awesome Author</p>
+			<p><a href="//mavo.io/">Powered by Mavo</a></p>
+			<a href="#logo">To the top ↑</a>
+		</section>
+	</footer>
+
+	<!-- Disqus -->
+	<script id="dsq-count-scr" src="//https-mavo-powered-blog-netlify-app.disqus.com/count.js" async></script>
+
+	<!-- Update comments count after loading data -->
+	<script>
+		document.addEventListener("mv-load", evt => {
+			DISQUSWIDGETS.getCount({ reset: true });
+		});
+	</script>
+</body>
+
+</html>
