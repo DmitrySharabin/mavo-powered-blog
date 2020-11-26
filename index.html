@@ -34,7 +34,7 @@
 		</nav>
 	</header>
 
-	<main mv-app="blog" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-plugins="markdown">
+	<main mv-app="blog" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-plugins="markdown" mv-bar="no-login">
 		<article property="post" mv-multiple mv-order="desc" mv-initial-items="0">
 			<header>
 				<h1>
@@ -74,7 +74,7 @@
 	</footer>
 
 	<!-- Properties editors -->
-	<div hidden mv-app mv-init="https://github.com/DmitrySharabin/mavo-powered-blog/categories.json">
+	<div hidden mv-app mv-init="https://github.com/DmitrySharabin/mavo-powered-blog/categories.json" mv-bar="no-login">
 		<select id="categories">
 			<option value="">--Choose--</option>
 			<option property="category" mv-multiple mv-group value="[code]">[name]</option>
