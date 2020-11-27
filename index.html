@@ -64,6 +64,15 @@
 				<input type="search" placeholder="🔍 Search" />
 				<button type="submit">Search</button>
 			</form>
+
+			<div mv-app>
+				<h2>Categories</h2>
+				<ul>
+					<li property="cat" mv-multiple mv-value="unique(blog.post.category)" mv-attribute="data-value">
+						<a href="/blog/category/[category]">[cat]</a> ([count(blog.post where cat in category)])
+					</li>
+				</ul>
+			</div>
 		</section>
 
 		<section>
