@@ -33,6 +33,10 @@ body {
 	gap: 2em;
 }
 
+body a {
+	color: inherit;
+}
+
 body > header {
 	padding: 3em 2em;
 
@@ -105,7 +109,6 @@ nav li {
 
 nav li a {
 	font-weight: 300;
-	color: inherit;
 }
 
 nav > ul li + li, [mv-app="post"] > header > ul li + li {
@@ -113,6 +116,7 @@ nav > ul li + li, [mv-app="post"] > header > ul li + li {
 	margin-inline-start: 0.3em;
 }
 
+body > header > h1 a:not(:hover):not(:focus),
 nav a:not(:hover):not(:focus) {
 	text-decoration: none;
 }
@@ -128,8 +132,6 @@ body > footer section:last-child {
 body > footer section:last-child * {
 	margin: 0;
 	padding: 0;
-
-	color: inherit;
 }
 
 body > footer section:last-child * + * {
