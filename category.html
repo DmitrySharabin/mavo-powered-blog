@@ -34,11 +34,11 @@
 		</nav>
 	</header>
 
-	<main mv-app="blog" mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
+	<main mv-app mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
 		<meta property="chosenCategory" content="[url('category')]" />
 
 		<h2>Posts in the <span class="chosen-category">[chosenCategory]</span> Category</h2>
-		<article property="post" mv-multiple mv-if="chosenCategory in category">
+		<article property mv-multiple mv-value="post where chosenCategory in category">
 			<header>
 				<h1>
 					<a href="/blog/[id]" property="title" mv-attribute="none">Post title</a>
