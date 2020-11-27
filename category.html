@@ -34,7 +34,7 @@
 		</nav>
 	</header>
 
-	<main mv-app mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
+	<main mv-app="posts" mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
 		<meta property="chosenCategory" content="[url('category')]" />
 
 		<h2>Posts in the <span class="chosen-category">[chosenCategory]</span> Category</h2>
@@ -67,8 +67,8 @@
 			<div mv-app>
 				<h2>Categories</h2>
 				<ul>
-					<li property="cat" mv-multiple mv-value="unique(blog.post.category)" mv-attribute="data-value">
-						<a href="/blog/category/[category]">[cat]</a> ([count(blog.post where cat in category)])
+					<li property="cat" mv-multiple mv-value="unique(posts.post.category)" mv-attribute="data-value">
+						<a href="/blog/category/[category]">[cat]</a> ([count(posts.post where cat in category)])
 					</li>
 				</ul>
 			</div>
