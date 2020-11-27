@@ -2,9 +2,6 @@
 *::before,
 *::after {
 	box-sizing: border-box;
-
-	font-family: system-ui, sans-serif;
-	line-height: 1.7;
 }
 
 :root {
@@ -20,6 +17,9 @@
 
 	background-color: var(--light-shades);
 	color: var(--dark-shades);
+
+	font-family: system-ui, sans-serif;
+	line-height: 1.7;
 }
 
 body {
