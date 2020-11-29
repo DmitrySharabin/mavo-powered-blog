@@ -9,4 +9,6 @@ Often, you need to specify a different format for the `mv-storage`, `mv-source`,
 
 # Available formats
 
-Mavo comes with some formats out of the box, but you can add more via [Plugins](https://plugins.mavo.io/?tag=Format). Read the documenation of the format you’re using carefully, because formats may come with restrictions about the structure of your properties. These restrictions are only about which properties will be used for displaying and saving data. If you have more properties in your Mavo, they will just be ignored. For example, you can have additional properties that are read-only or contain expressions.
+Mavo comes with some formats out of the box, but you can add more via [Plugins](https://plugins.mavo.io/?tag=Format). Read the documentation of the format you’re using carefully, because formats may come with restrictions about the structure of your properties. These restrictions are only about which properties will be used for displaying and saving data. If you have more properties in your Mavo, they will just be ignored. For example, you can have additional properties that are read-only or contain expressions.
+
+Let's add the Mavo logo to check how it will be stored: ![Mavo Logo](https://mavo-powered-blog.netlify.app/images/Mavo_logo.jpg)
