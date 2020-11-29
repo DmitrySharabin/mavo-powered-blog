@@ -1,39 +1,39 @@
 {
 	"category": [
 		{
-			"code": "html",
+			"code": "HTML",
 			"name": "HTML"
 		},
 		{
-			"code": "css",
+			"code": "CSS",
 			"name": "CSS"
 		},
 		{
-			"code": "javascript",
+			"code": "JavaScript",
 			"name": "JavaScript"
 		},
 		{
-			"code": "design",
+			"code": "Design",
 			"name": "Design"
 		},
 		{
-			"code": "articles",
+			"code": "Articles",
 			"name": "Articles"
 		},
 		{
-			"code": "tutorials",
+			"code": "Tutorials",
 			"name": "Tutorials"
 		},
 		{
-			"code": "tips",
+			"code": "Tips",
 			"name": "Tips"
 		},
 		{
-			"code": "hacks",
+			"code": "Hacks",
 			"name": "Hacks"
 		},
 		{
-			"code": "personal",
+			"code": "Personal",
 			"name": "Personal"
 		}
 	]
