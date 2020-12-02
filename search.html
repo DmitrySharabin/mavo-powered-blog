@@ -11,7 +11,7 @@
 	<script src="//get.mavo.io/mavo.min.js"></script>
 
 	<!-- Styles -->
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/style.css">
 
 	<title>Mavo-Powered Blog</title>
 </head>
@@ -33,29 +33,30 @@
 		</nav>
 	</header>
 
-	<main mv-app="blog" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-upload-url="https://mavo-powered-blog.netlify.app" mv-plugins="markdown" mv-bar="no-login">
-		<article property="post" mv-multiple mv-order="desc" mv-initial-items="0">
+	<main mv-app mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
+		<meta property="searchPhrase" content="[url('s')]" />
+		<meta property="post" content="[condense(post where contains(title, searchPhrase))]" />
+
+		<h2>Search: <q mv-value="searchPhrase">You were looking for</q></h2>
+		<p>We found <span mv-value="count(post)">0</span> result<span mv-if="count(post) != 1">s</span> for your search.</p>
+
+		<article property mv-multiple mv-value="post">
 			<header>
 				<h1>
 					<a href="/blog/[id]" property="title" mv-attribute="none">Post title</a>
 				</h1>
 
-				<div aria-label="Post categories">
-					<span property="category" mv-multiple mv-edit="#categories" mv-initial-items="0"></span>
-				</div>
+				<p>
+					Posted on <time datetime="[date]" mv-attribute="none"
+					mv-value="weekday(date, 'name') & ', ' & month(date, 'name') & ' ' & day(date) & ordinal(day(date)) & ', ' & year(date)">
+						Friday, May 13th, 1983
+					</time>
+					&bull;
+					<a href="/blog/[id]#disqus_thread">Comments</a>
+				</p>
 			</header>
 
 			<div property="summary" class="markdown" mv-markdown-options="headerLevelStart: 2">Post summary</div>
-
-			<a href="/blog/[id]" aria-label="Read post: [title]">Read post</a>
-
-			<footer>
-				Posted on <time property="date" mv-default="[$today]">[month(date, "name")] [day(date)], [year(date)]</time>
-				&bull;
-				<a href="/blog/[id]#disqus_thread">Comments</a>
-
-				<meta property="id" mv-default="[idify(title)]" />
-			</footer>
 		</article>
 	</main>
 
@@ -66,12 +67,12 @@
 				<button type="submit">Search</button>
 			</form>
 
-			<div mv-app>
+			<div mv-app mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none">
 				<h2>Categories</h2>
 				<ul>
-					<li property="cat" mv-multiple mv-value="unique(blog.post.category)" mv-attribute="data-value">
+					<li property="cat" mv-multiple mv-value="unique(category)" mv-attribute="data-value">
 						<a href="/blog/category/[cat]" mv-attribute="none" mv-value="cat">Category</a>
-						(<span mv-value="count(blog.post where cat in category)">13</span>)
+						(<span mv-value="count(post where cat in category)">13</span>)
 					</li>
 				</ul>
 			</div>
@@ -83,14 +84,6 @@
 			<a href="#logo">To the top ↑</a>
 		</section>
 	</footer>
-
-	<!-- Properties editors -->
-	<div hidden mv-app mv-init="https://github.com/DmitrySharabin/mavo-powered-blog/categories.json" mv-bar="no-login">
-		<select id="categories">
-			<option value="">--Choose--</option>
-			<option property="category" mv-multiple mv-group value="[code]">[name]</option>
-		</select>
-	</div>
 
 	<!-- Disqus -->
 	<script id="dsq-count-scr" src="//https-mavo-powered-blog-netlify-app.disqus.com/count.js" async></script>
