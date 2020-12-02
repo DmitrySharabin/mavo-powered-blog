@@ -75,6 +75,15 @@
 					</li>
 				</ul>
 			</div>
+
+			<div mv-app>
+				<h2>Recent Posts</h2>
+				<ul>
+					<li property="post" mv-multiple mv-value="first(10, blog.post)" mv-attribute="data-value">
+						<a href="/blog/[id]" mv-attribute="none" property="title">Post title</a>
+					</li>
+				</ul>
+			</div>
 		</section>
 
 		<section>

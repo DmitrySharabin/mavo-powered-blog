@@ -74,6 +74,13 @@
 						(<span mv-value="count(post where cat in category)">13</span>)
 					</li>
 				</ul>
+
+				<h2>Recent Posts</h2>
+				<ul>
+					<li mv-multiple mv-value="first(10, post)" mv-attribute="data-value">
+						<a href="/blog/[id]" mv-attribute="none" property="title">Post title</a>
+					</li>
+				</ul>
 			</div>
 		</section>
 
