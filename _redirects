@@ -1,3 +1,2 @@
 /blog/:id /post.html/ 200
 /blog/category/:id /category.html/ 200
-/blog/search s=:s /search.html?s=:s 200
