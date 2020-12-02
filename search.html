@@ -33,14 +33,16 @@
 		</nav>
 	</header>
 
-	<main mv-app mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
+	<main mv-app="posts" mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
 		<meta property="searchPhrase" content="[url('s')]" />
 		<meta property="post" content="[condense(post where contains(title, searchPhrase))]" />
+		<meta property="curPage" content="[pagination.curPage]" />
+		<meta property="perPage" content="[pagination.perPage]" />
 
 		<h2>Search: <q mv-value="searchPhrase">You were looking for</q></h2>
 		<p>We found <span mv-value="count(post)">0</span> result<span mv-if="count(post) != 1">s</span> for your search.</p>
 
-		<article property mv-multiple mv-value="post">
+		<article property mv-multiple mv-value="post" hidden="[$index <= (curPage - 1) * perPage - 1 or $index >= curPage * perPage]">
 			<header>
 				<h1>
 					<a href="/blog/[id]" property="title" mv-attribute="none">Post title</a>
@@ -59,6 +61,33 @@
 			<div property="summary" class="markdown" mv-markdown-options="headerLevelStart: 2">Post summary</div>
 		</article>
 	</main>
+
+	<!-- Pagination -->
+	<div mv-app="pagination" mv-mode="read">
+		<meta property="postCount" content="[count(posts.post)]" />
+		<meta property="pageCount" content="[ceil(postCount / perPage)]" />
+		<meta property="perPage" content="10" />
+		<meta property="curPage" content="1" />
+		<meta property="dots" content="[pageCount > 8]" />
+
+		<nav mv-if="postCount > perPage" role="navigation" aria-label="Posts">
+			<button class="prevPage" mv-action="set(curPage, curPage - 1)" disabled="[curPage = 1]">← Newer Posts</button>
+
+			<button mv-action="set(curPage, 1)" class="[if(curPage = 1, selected)]">1</button>
+
+			<span hidden="[dots and curPage < 4]">&hellip;</span>
+
+			<button property="page" mv-multiple mv-value="2 .. pageCount - 1" mv-attribute="none"
+			hidden="[dots and abs(page - curPage) > 1]"
+			mv-action="set(curPage, page)" class="[if(curPage = page, selected)]">0</button>
+
+			<span hidden="[dots and curPage > pageCount - 3]">&hellip;</span>
+
+			<button mv-action="set(curPage, pageCount)" class="[if(curPage = pageCount, selected)]" mv-attribute="none" mv-value="pageCount">0</button>
+
+			<button class="nextPage" mv-action="set(curPage, curPage + 1)" disabled="[curPage = pageCount]">Older Posts →</button>
+		</nav>
+	</div>
 
 	<footer>
 		<section>
