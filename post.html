@@ -43,13 +43,14 @@
 				<h2 property="title">Post title</h2>
 				<p>
 					Posted
-					<time datetime="[date]">
-						[if(date = $today, "today", if($today - date = 1* days(), "yesterday", duration($today - date) & " past"))]
+					<time datetime="[date]" mv-attribute="none"
+					mv-value="if(date = $today, 'today', if($today - date = 1* days(), 'yesterday', duration($today - date) & ' past'))">
+						today
 					</time>
 				</p>
 				<ul role="navigation" aria-label="Post categories">
 					<li property="category" mv-multiple mv-attribute="data-category" mv-edit="#categories">
-						<a href="/blog/category/[category]">[category]</a>
+						<a href="/blog/category/[category]" mv-attribute="none" mv-value="category">Category</a>
 					</li>
 				</ul>
 			</header>
@@ -91,7 +92,8 @@
 				<h2>Categories</h2>
 				<ul>
 					<li property="cat" mv-multiple mv-value="unique(category)" mv-attribute="data-value">
-						<a href="/blog/category/[cat]">[cat]</a> ([count(post where cat in category)])
+						<a href="/blog/category/[cat]" mv-attribute="none" mv-value="cat">Category</a>
+						(<span mv-value="count(post where cat in category)">13</span>)
 					</li>
 				</ul>
 			</div>

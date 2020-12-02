@@ -36,7 +36,7 @@
 	<main mv-app mv-source="https://github.com/DmitrySharabin/mavo-powered-blog/posts.json" mv-bar="none" mv-plugins="markdown">
 		<meta property="chosenCategory" content="[url('category')]" />
 
-		<h2>Posts in the <span class="chosen-category">[chosenCategory]</span> Category</h2>
+		<h2>Posts in the <span class="chosen-category" mv-value="chosenCategory">one and only</span> Category</h2>
 		<article property mv-multiple mv-value="post where chosenCategory in category">
 			<header>
 				<h1>
@@ -44,8 +44,9 @@
 				</h1>
 
 				<p>
-					Posted on <time datetime="[date]">
-						[weekday(date, "name")], [month(date, "name")] [day(date)][ordinal(day(date))], [year(date)]
+					Posted on <time datetime="[date]" mv-attribute="none"
+					mv-value="weekday(date, 'name') & ', ' & month(date, 'name') & ' ' & day(date) & ordinal(day(date)) & ', ' & year(date)">
+						Friday, May 13th, 1983
 					</time>
 					&bull;
 					<a href="/blog/[id]#disqus_thread">Comments</a>
@@ -69,7 +70,8 @@
 				<h2>Categories</h2>
 				<ul>
 					<li property="cat" mv-multiple mv-value="unique(category)" mv-attribute="data-value">
-						<a href="/blog/category/[cat]">[cat]</a> ([count(post where cat in category)])
+						<a href="/blog/category/[cat]" mv-attribute="none" mv-value="cat">Category</a>
+						(<span mv-value="count(post where cat in category)">13</span>)
 					</li>
 				</ul>
 			</div>

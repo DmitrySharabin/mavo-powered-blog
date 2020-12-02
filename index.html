@@ -70,7 +70,8 @@
 				<h2>Categories</h2>
 				<ul>
 					<li property="cat" mv-multiple mv-value="unique(blog.post.category)" mv-attribute="data-value">
-						<a href="/blog/category/[cat]">[cat]</a> ([count(blog.post where cat in category)])
+						<a href="/blog/category/[cat]" mv-attribute="none" mv-value="cat">Category</a>
+						(<span mv-value="count(blog.post where cat in category)">13</span>)
 					</li>
 				</ul>
 			</div>
