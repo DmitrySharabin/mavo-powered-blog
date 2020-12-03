@@ -55,11 +55,11 @@
 				</ul>
 			</header>
 
-			<div property="summary" class="markdown" mv-markdown-options="headerLevelStart: 3">Post summary</div>
+			<div property="summary" mv-upload-path="posts/images" class="markdown" mv-markdown-options="headerLevelStart: 3">Post summary</div>
 		</div>
 
 		<div mv-app="postContent" mv-storage="https://github.com/DmitrySharabin/mavo-powered-blog/posts/[post.id].md" mv-upload-url="https://mavo-powered-blog.netlify.app" mv-plugins="markdown" mv-bar="no-login">
-			<div property mv-markdown-options="headerLevelStart: 3" aria-label="Post content">Post content</div>
+			<div property mv-upload-path="../posts/images" mv-markdown-options="headerLevelStart: 3" aria-label="Post content">Post content</div>
 		</div>
 
 		<div id="disqus_thread"></div>
