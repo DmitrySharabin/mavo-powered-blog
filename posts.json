@@ -6,7 +6,7 @@
 				"HTML",
 				"CSS"
 			],
-			"summary": "By default, Mavo saves and reads data in JSON. While you don’t need to understand JSON to use Mavo, you may need to use a different file format at some point. This is exactly what `mv-format` is for.\n\nTest image: ![](https://mavo-powered-blog.netlify.app/posts/images/Mavo-logo.png)",
+			"summary": "By default, Mavo saves and reads data in JSON. While you don’t need to understand JSON to use Mavo, you may need to use a different file format at some point. This is exactly what `mv-format` is for.",
 			"date": "2020-11-25",
 			"id": "storage-formats"
 		},
