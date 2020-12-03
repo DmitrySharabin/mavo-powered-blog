@@ -14,3 +14,5 @@ Mavo comes with some formats out of the box, but you can add more via [Plugins](
 Let's add the Mavo logo to check how it will be stored: ![Mavo Logo](https://mavo-powered-blog.netlify.app/posts/images/Mavo_logo.jpg)
 
 ![](https://mavo-powered-blog.netlify.app/posts/images/logo.svg)
+
+![](https://mavo-powered-blog.netlify.app/posts/images/Github)
