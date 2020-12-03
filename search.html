@@ -70,7 +70,7 @@
 		<meta property="curPage" content="1" />
 		<meta property="dots" content="[pageCount > 8]" />
 
-		<nav mv-if="postCount > perPage" role="navigation" aria-label="Posts">
+		<nav mv-if="postCount > perPage" aria-label="Posts">
 			<button class="prevPage" mv-action="set(curPage, curPage - 1)" disabled="[curPage = 1]">← Newer Posts</button>
 
 			<button mv-action="set(curPage, 1)" class="[if(curPage = 1, selected)]">1</button>
